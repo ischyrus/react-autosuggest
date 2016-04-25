@@ -367,7 +367,7 @@ class Autosuggest extends Component {
     return (
       <Autowhatever multiSection={multiSection}
                     items={items}
-                    onFocus={this.focused}
+                    onfocus={this.focused}
                     renderItem={renderItem}
                     renderSectionTitle={renderSectionTitle}
                     getSectionItems={getSectionSuggestions}

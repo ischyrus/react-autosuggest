@@ -434,7 +434,7 @@ var Autosuggest = function (_Component) {
 
       return _react2.default.createElement(_reactAutowhatever2.default, { multiSection: multiSection,
         items: items,
-        onFocus: this.focused,
+        onfocus: this.focused,
         renderItem: renderItem,
         renderSectionTitle: renderSectionTitle,
         getSectionItems: getSectionSuggestions,
