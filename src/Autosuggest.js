@@ -207,7 +207,7 @@ class Autosuggest extends Component {
         const focusedSuggestion = this.getFocusedSuggestion() || suggestions[0];
         const suggestionValue = this.props.getSuggestionValue(focusedSuggestion);
 
-        if (focusedSuggestion !== null && suggestionValue) {
+        if (focusedSuggestion !== null && suggestionValue !== '[unknown]') {
           onSuggestionSelected(event, {
             suggestion: focusedSuggestion,
             suggestionValue: suggestionValue,
@@ -231,7 +231,7 @@ class Autosuggest extends Component {
             const focusedSuggestion = this.getFocusedSuggestion() || suggestions[0];
             const suggestionValue = this.props.getSuggestionValue(focusedSuggestion);
 
-            if (focusedSuggestion !== null && suggestionValue) {
+            if (focusedSuggestion !== null && suggestionValue !== '[unknown]') {
               closeSuggestions('enter');
               onSuggestionSelected(event, {
                 suggestion: focusedSuggestion,

@@ -259,7 +259,7 @@ var Autosuggest = function (_Component) {
           var focusedSuggestion = _this2.getFocusedSuggestion() || suggestions[0];
           var suggestionValue = _this2.props.getSuggestionValue(focusedSuggestion);
 
-          if (focusedSuggestion !== null && suggestionValue) {
+          if (focusedSuggestion !== null && suggestionValue !== '[unknown]') {
             onSuggestionSelected(event, {
               suggestion: focusedSuggestion,
               suggestionValue: suggestionValue,
@@ -284,7 +284,7 @@ var Autosuggest = function (_Component) {
               var focusedSuggestion = _this2.getFocusedSuggestion() || suggestions[0];
               var suggestionValue = _this2.props.getSuggestionValue(focusedSuggestion);
 
-              if (focusedSuggestion !== null && suggestionValue) {
+              if (focusedSuggestion !== null && suggestionValue !== '[unknown]') {
                 closeSuggestions('enter');
                 onSuggestionSelected(event, {
                   suggestion: focusedSuggestion,
