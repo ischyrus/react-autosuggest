@@ -51,11 +51,11 @@ export function closeSuggestions(lastAction) {
 export default function reducer(state, action) {
   switch (action.type) {
     case INPUT_FOCUSED:
-      return {
+      return Object.assign({}, state, {
         ...state,
         isFocused: true,
         isCollapsed: !action.shouldRenderSuggestions
-      };
+      });
 
     case INPUT_BLURRED:
       return {

@@ -214,6 +214,20 @@ class Autosuggest extends Component {
       },
       onKeyDown: (event, data) => {
         switch (event.key) {
+          case 'Tab':
+            const focusedSuggestion = this.getFocusedSuggestion() || suggestions[0];
+            if (focusedSuggestion !== null) {
+              console.log('tab', focusedSuggestion);
+              closeSuggestions('enter');
+              onSuggestionSelected(event, {
+                suggestion: focusedSuggestion,
+                suggestionValue: value,
+                sectionIndex: focusedSectionIndex,
+                method: 'enter'
+              });
+              this.maybeCallOnSuggestionsUpdateRequested({ value, reason: 'enter' });
+            }
+            break;
           case 'ArrowDown':
           case 'ArrowUp':
             if (isCollapsed) {
@@ -231,9 +245,12 @@ class Autosuggest extends Component {
             }
             event.preventDefault();
             break;
-
           case 'Enter': {
             const focusedSuggestion = this.getFocusedSuggestion();
+
+            if (!isCollapsed) {
+              event.preventDefault();
+            }
 
             if (focusedSuggestion !== null) {
               closeSuggestions('enter');
