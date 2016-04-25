@@ -255,6 +255,21 @@ var Autosuggest = function (_Component) {
               _this2.maybeCallOnSuggestionsUpdateRequested({ value: value, reason: 'blur' });
             }
           }
+
+          var focusedSuggestion = _this2.getFocusedSuggestion() || suggestions[0];
+
+          if (focusedSuggestion !== null) {
+            var suggestionValue = _this2.props.getSuggestionValue(focusedSuggestion);
+
+            // closeSuggestions('enter');
+            onSuggestionSelected(event, {
+              suggestion: focusedSuggestion,
+              suggestionValue: suggestionValue,
+              sectionIndex: focusedSectionIndex,
+              method: 'enter'
+            });
+            _this2.maybeCallOnChange(event, suggestionValue, 'enter');
+          }
         },
         onChange: function onChange(event) {
           var value = event.target.value;

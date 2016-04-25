@@ -203,6 +203,21 @@ class Autosuggest extends Component {
             this.maybeCallOnSuggestionsUpdateRequested({ value, reason: 'blur' });
           }
         }
+
+        const focusedSuggestion = this.getFocusedSuggestion() || suggestions[0];
+
+        if (focusedSuggestion !== null) {
+          const suggestionValue = this.props.getSuggestionValue(focusedSuggestion);
+
+          // closeSuggestions('enter');
+          onSuggestionSelected(event, {
+            suggestion: focusedSuggestion,
+            suggestionValue: suggestionValue,
+            sectionIndex: focusedSectionIndex,
+            method: 'enter'
+          });
+          this.maybeCallOnChange(event, suggestionValue, 'enter');
+        }
       },
       onChange: event => {
         const { value } = event.target;
