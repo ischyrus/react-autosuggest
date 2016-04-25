@@ -205,11 +205,9 @@ class Autosuggest extends Component {
         }
 
         const focusedSuggestion = this.getFocusedSuggestion() || suggestions[0];
+        const suggestionValue = this.props.getSuggestionValue(focusedSuggestion);
 
-        if (focusedSuggestion !== null) {
-          const suggestionValue = this.props.getSuggestionValue(focusedSuggestion);
-
-          // closeSuggestions('enter');
+        if (focusedSuggestion !== null && suggestionValue) {
           onSuggestionSelected(event, {
             suggestion: focusedSuggestion,
             suggestionValue: suggestionValue,
@@ -231,10 +229,9 @@ class Autosuggest extends Component {
         switch (event.key) {
           case 'Tab':
             const focusedSuggestion = this.getFocusedSuggestion() || suggestions[0];
+            const suggestionValue = this.props.getSuggestionValue(focusedSuggestion);
 
-            if (focusedSuggestion !== null) {
-              const suggestionValue = this.props.getSuggestionValue(focusedSuggestion);
-
+            if (focusedSuggestion !== null && suggestionValue) {
               closeSuggestions('enter');
               onSuggestionSelected(event, {
                 suggestion: focusedSuggestion,
