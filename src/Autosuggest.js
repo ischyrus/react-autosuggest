@@ -216,8 +216,10 @@ class Autosuggest extends Component {
         switch (event.key) {
           case 'Tab':
             const focusedSuggestion = this.getFocusedSuggestion() || suggestions[0];
+
             if (focusedSuggestion !== null) {
               const suggestionValue = this.props.getSuggestionValue(focusedSuggestion);
+
               closeSuggestions('enter');
               onSuggestionSelected(event, {
                 suggestion: focusedSuggestion,

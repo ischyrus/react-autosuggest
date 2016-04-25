@@ -1599,8 +1599,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	          switch (event.key) {
 	            case 'Tab':
 	              var focusedSuggestion = _this2.getFocusedSuggestion() || suggestions[0];
+
 	              if (focusedSuggestion !== null) {
-	                console.log('tab', focusedSuggestion);
+	                var suggestionValue = _this2.props.getSuggestionValue(focusedSuggestion);
+
 	                closeSuggestions('enter');
 	                onSuggestionSelected(event, {
 	                  suggestion: focusedSuggestion,
@@ -1608,7 +1610,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                  sectionIndex: focusedSectionIndex,
 	                  method: 'enter'
 	                });
-	                _this2.maybeCallOnSuggestionsUpdateRequested({ value: value, reason: 'enter' });
+	                _this2.maybeCallOnChange(event, suggestionValue, 'enter');
 	              }
 	              break;
 	            case 'ArrowDown':
