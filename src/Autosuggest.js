@@ -217,7 +217,7 @@ class Autosuggest extends Component {
           case 'Tab':
             const focusedSuggestion = this.getFocusedSuggestion() || suggestions[0];
             if (focusedSuggestion !== null) {
-              console.log('tab', focusedSuggestion);
+              const suggestionValue = this.props.getSuggestionValue(focusedSuggestion);
               closeSuggestions('enter');
               onSuggestionSelected(event, {
                 suggestion: focusedSuggestion,
@@ -225,7 +225,7 @@ class Autosuggest extends Component {
                 sectionIndex: focusedSectionIndex,
                 method: 'enter'
               });
-              this.maybeCallOnSuggestionsUpdateRequested({ value, reason: 'enter' });
+              this.maybeCallOnChange(event, suggestionValue, 'enter');
             }
             break;
           case 'ArrowDown':

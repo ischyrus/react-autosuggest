@@ -22,7 +22,7 @@ function getSuggestions(value) {
 }
 
 function getSuggestionValue(suggestion) {
-  return suggestion.name;
+  return suggestion.name + 'value';
 }
 
 function renderSuggestion(suggestion) {
