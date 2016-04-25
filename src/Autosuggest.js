@@ -191,6 +191,12 @@ class Autosuggest extends Component {
           inputFocused(shouldRenderSuggestions(value));
           onFocus && onFocus(event);
         }
+
+        if (this.input.setSelectionRange) {
+          this.input.setSelectionRange(0, this.input.length);
+        } else {
+          this.input.select();
+        }
       },
       onBlur: event => {
         this.onBlurEvent = event;

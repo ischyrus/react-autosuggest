@@ -1573,6 +1573,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	            inputFocused(shouldRenderSuggestions(value));
 	            _onFocus && _onFocus(event);
 	          }
+
+	          if (_this2.input.setSelectionRange) {
+	            _this2.input.setSelectionRange(0, _this2.input.length);
+	          } else {
+	            _this2.input.select();
+	          }
 	        },
 	        onBlur: function onBlur(event) {
 	          _this2.onBlurEvent = event;
