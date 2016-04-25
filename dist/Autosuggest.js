@@ -203,6 +203,11 @@ var Autosuggest = function (_Component) {
       }
     }
   }, {
+    key: 'focused',
+    value: function focused() {
+      console.log('test focus');
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _this2 = this;
@@ -429,6 +434,7 @@ var Autosuggest = function (_Component) {
 
       return _react2.default.createElement(_reactAutowhatever2.default, { multiSection: multiSection,
         items: items,
+        onFocus: this.focused,
         renderItem: renderItem,
         renderSectionTitle: renderSectionTitle,
         getSectionItems: getSectionSuggestions,

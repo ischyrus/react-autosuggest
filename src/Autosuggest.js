@@ -172,6 +172,10 @@ class Autosuggest extends Component {
     }
   }
 
+  focused() {
+    console.log('test focus');
+  }
+
   render() {
     const {
       suggestions, renderSuggestion, inputProps, shouldRenderSuggestions,
@@ -363,6 +367,7 @@ class Autosuggest extends Component {
     return (
       <Autowhatever multiSection={multiSection}
                     items={items}
+                    onFocus={this.focused}
                     renderItem={renderItem}
                     renderSectionTitle={renderSectionTitle}
                     getSectionItems={getSectionSuggestions}
