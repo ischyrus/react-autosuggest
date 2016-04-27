@@ -268,7 +268,7 @@ class Autosuggest extends Component {
           case 'Enter': {
             const focusedSuggestion = this.getFocusedSuggestion();
 
-            if (!isCollapsed) {
+            if (!isCollapsed && suggestions.length > 0) {
               event.preventDefault();
             }
 
